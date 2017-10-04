@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.io.File;
 
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
 import static android.os.Environment.DIRECTORY_MUSIC;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 file = this.getCacheDir();
                 break;
             case R.id.ExternalFiles:
-                file = this.getExternalFilesDir(DIRECTORY_MUSIC);
+                file = this.getExternalFilesDir(DIRECTORY_DOWNLOADS);
                 break;
             case R.id.ExternalCache:
                 file = this.getExternalCacheDir();
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 file = Environment.getExternalStorageDirectory();
                 break;
             case R.id.ExternalStoragePublic:
-                file = Environment.getExternalStoragePublicDirectory(DIRECTORY_MUSIC);
+                file = Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS);
                 break;
         }
         if(file == null){
