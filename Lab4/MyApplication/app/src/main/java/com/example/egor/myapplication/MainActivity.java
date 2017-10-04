@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,85 +21,84 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    String fname = "Base_Lab.txt";
-
-    BufferedWriter bw;
+    private final String FILENAME = "Base_Lab.txt";
+    private BufferedWriter bw;
+    private FileReader fr;
+    private TextView textViewData;
+    private EditText editTextSecondName;
+    private EditText editTextFirstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(FileExist(fname)){
-            try {
-                LoadFile(fname);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
+        editTextSecondName = (EditText) findViewById(R.id.editTextSecondName);
+        textViewData = (TextView) findViewById(R.id.textViewData);
+
+        //deleteFile();
+        if(FileExist(FILENAME)){
+            textViewData.setText(LoadFile(FILENAME));
         } else {
-            File f = new File(super.getFilesDir(), fname);
+            File f = new File(super.getFilesDir(), FILENAME);
             try {
                 f.createNewFile();
-                Log.d("Log_02", "Файл " + fname + " создан");
+                Log.d("Log_02", "Файл " + FILENAME + " создан");
             } catch (IOException e) {
-                Log.d("Log_02", "Файл " + fname + " не создан");
+                Log.d("Log_02", "Файл " + FILENAME + " не создан");
             }
-
-            AlertDialog.Builder b = new AlertDialog.Builder(this);
-            b.setTitle("Создается файл " + fname).setPositiveButton("Да",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Log.d("Log_02", "Создание файла " + fname);
-                        }
-                    });
-            AlertDialog ad = b.create();
-            ad.show();
+            createDialog();
         }
     }
 
-    private boolean FileExist(String fname) {
+    private void createDialog() {
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setTitle("Создается файл " + FILENAME).setPositiveButton("Да",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("Log_02", "Создание файла " + FILENAME);
+                    }
+                });
+        AlertDialog ad = b.create();
+        ad.show();
+    }
+
+    private void deleteFile() {
+        File file = new File(super.getFilesDir(), FILENAME);
+        file.delete();
+        Log.d("Log_02", "Файл " + FILENAME + " был успешно удален!");
+    }
+
+    private boolean FileExist(String FILENAME) {
         boolean rc = false;
-        File f = new File(super.getFilesDir(), fname);
+        File f = new File(super.getFilesDir(), FILENAME);
         if (rc = f.exists()) {
-            Log.d("Log_02", "Файл " + fname + " существует");
+            Log.d("Log_02", "Файл " + FILENAME + " существует");
         } else {
-            Log.d("Log_02", "Файл " + fname + " не найден");
+            Log.d("Log_02", "Файл " + FILENAME + " не найден");
         }
         return rc;
     }
 
-
-    private void LoadFile(String fname) throws FileNotFoundException {
+    private String LoadFile(String FILENAME) {
+        File file = new File(super.getFilesDir(), FILENAME);
+        char buf[] = new char[(int) file.length()];
         try {
-            // открываем поток для чтения
-            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput(fname)));
-            String str = "";
-            // читаем содержимое
-            while ((str = br.readLine()) != null) {
-                Log.d("Lab_02", str);
-            }
-            ((TextView) findViewById(R.id.textViewData)).setText(str);
-            br.close();
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
+            fr = new FileReader(file);
+            fr.read(buf);
+            Log.d("Log_02", "РџРѕР»СѓС‡РёР» С‚РµРєСЃС‚ " + new String(buf));
         }
         catch (IOException e) {
-            e.printStackTrace();
+            Log.d("Log_02", "РќРµ СѓРґР°Р»РѕСЃСЊ РїСЂРѕС‡РёС‚Р°С‚СЊ РёР· С„Р°Р№Р»Р° " + FILENAME);
         }
-
+        Log.d("Log_02", new String(buf));
+        return new String(buf);
     }
 
-    private static void exists(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        if (!file.exists()){
-            throw new FileNotFoundException(file.getName());
-        }
-    }
-
-    private BufferedWriter OpenFile(String fname) {
-        File f = new File(super.getFilesDir(), fname);
+    private BufferedWriter OpenFile(String FILENAME) {
+        File f = new File(super.getFilesDir(), FILENAME);
         BufferedWriter bw = null;
 
         try {
@@ -106,30 +106,32 @@ public class MainActivity extends AppCompatActivity {
             bw = new BufferedWriter(fw);
         }
         catch (IOException e) {
-            Log.d("Log_02", "Файл " + fname + " не открыт " + e.getMessage());
+            Log.d("Log_02", "Файл " + FILENAME + " не открыт " + e.getMessage());
         }
 
         return bw;
     }
 
-    private void WriteLine(String surname, String name, BufferedWriter bw) {
-        if(bw != null) {
-            String s = surname + ";" + name + ";" + "\r\n";
-
-            try {
-                bw.write(s);
-                Log.d("Log_02", "Данные записаны");
-            }
-            catch (IOException e) {
-                Log.d("Log_02", e.getMessage());
-            }
+    private void WriteLine(String surname, String name) {
+        String str = surname + ";" + name + "\r\n";
+        File file = new File(super.getFilesDir(), FILENAME);
+        try {
+            FileWriter fw = new FileWriter(file, true);
+            BufferedWriter bufferWriter = new BufferedWriter(fw);
+            bufferWriter.write(str);
+            bufferWriter.close();
+            Log.d("Log_02", "Р”Р°РЅРЅС‹Рµ Р·Р°РїРёСЃР°РЅС‹");
+        }
+        catch (IOException e) {
+            Log.d("Log_02", e.getMessage());
         }
     }
 
     public void onClickSaveData(View v) {
-        String secondName = ((EditText) findViewById(R.id.editTextSecondName)).getText().toString();
-        String firstName = ((EditText) findViewById(R.id.editTextFirstName)).getText().toString();
-        WriteLine(secondName, firstName, bw);
+        String secondName = editTextSecondName.getText().toString();
+        String firstName = editTextFirstName.getText().toString();
+        WriteLine(secondName, firstName);
+        textViewData.setText(LoadFile(FILENAME));
     }
 
 }
