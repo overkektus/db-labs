@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CalendarNotes</string>
+    <string name="enter_text">введите текст заметки</string>
 </resources>
