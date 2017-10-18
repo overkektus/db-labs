@@ -24,7 +24,6 @@ import java.util.HashMap;
 
 import es.dmoral.toasty.Toasty;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSION_WRITE = 1001;
@@ -58,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
             File f = new File(super.getFilesDir(), FILENAME);
             try {
                 f.createNewFile();
-                Log.d("Log_02", "Файл " + FILENAME + " создан");
+                Log.d("Log_file", "Файл " + FILENAME + " создан");
             } catch (IOException e) {
-                Log.d("Log_02", "Файл " + FILENAME + " не создан");
+                Log.d("Log_file", "Файл " + FILENAME + " не создан");
             }
         }
 
@@ -92,28 +91,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void saveText(){
-        /*
-        Log.d("SAVE", "before permission");
-        if(!FileHelper.isPermissionGranted()){
-            FileHelper.checkPermissions(this, this);
-            return;
-        }
-        Log.d("SAVE", "after permission");
-        */
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(FileHelper.getExternalPath());
             Gson gson = new Gson();
             String json = gson.toJson(notes);
             fos.write(json.getBytes());
-            Log.d("SAVE", json);
         }
         catch(IOException ex) {
             Toasty.error(this, ex.getMessage(), Toast.LENGTH_SHORT, true).show();
         }
         finally {
             try {
-                if(fos!=null)
+                if(fos != null)
                     fos.close();
             }
             catch(IOException ex){
@@ -123,13 +113,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openText(){
-        /*
-        if(!FileHelper.isPermissionGranted()) {
-            FileHelper.checkPermissions(this, this);
-            return;
-        }
-        */
-
         FileInputStream fin = null;
         File file = FileHelper.getExternalPath();
         if(!file.exists()) return;
