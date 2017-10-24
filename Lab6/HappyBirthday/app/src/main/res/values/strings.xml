@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Happy Birthday</string>
+    <string name="search">Выберете дату рождения:</string>
+    <string name="choose_date">Выберите дату</string>
+    <string name="result">Результат поиска:</string>
+    <string name="first_name">Имя:</string>
+    <string name="second_name">Фамилия:</string>
+    <string name="phone">Телефон:</string>
+    <string name="find">Найти</string>
 </resources>

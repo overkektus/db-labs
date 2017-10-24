@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Contacts</string>
+    <string name="choose_date">Выберите дату</string>
+    <string name="ready">Готово</string>
+    <string name="first_name">Имя:</string>
+    <string name="second_name">Фамилия:</string>
+    <string name="phone">Телефон:</string>
+    <string name="birthday">День рождения:</string>
+    <string name="save_file">Сохранить файл</string>
+    <string name="search">Поиск</string>
+    <string name="add">Добавать</string>
 </resources>
