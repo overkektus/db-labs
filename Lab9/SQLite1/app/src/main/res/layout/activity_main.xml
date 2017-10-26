@@ -17,7 +17,7 @@
         <TextView
             style="@style/TextView"
             android:id="@+id/textViewId"
-            android:text="ID" />
+            android:text="@string/id" />
 
         <EditText
             android:id="@+id/editTextId"
@@ -29,7 +29,7 @@
         <TextView
             style="@style/TextView"
             android:id="@+id/textViewF"
-            android:text="F" />
+            android:text="@string/f" />
 
         <EditText
             android:id="@+id/editTextF"
@@ -42,7 +42,7 @@
         <TextView
             style="@style/TextView"
             android:id="@+id/textViewT"
-            android:text="T" />
+            android:text="@string/t" />
 
         <EditText
             android:id="@+id/editTextT"
@@ -54,26 +54,27 @@
         <Button
             style="@style/WidthHeight"
             android:id="@+id/buttonInsert"
-            android:text="INSERT" />
+            android:text="@string/insert" />
 
         <Button
             style="@style/WidthHeight"
             android:id="@+id/buttonSelect"
-            android:text="SELECT" />
+            android:text="@string/select" />
 
         <Button
             style="@style/WidthHeight"
             android:id="@+id/buttonSelectRaw"
-            android:text="SelectRaw" />
+            android:text="@string/select_raw" />
 
         <Button
             style="@style/WidthHeight"
             android:id="@+id/buttonUpdate"
-            android:text="UPDATE" />
+            android:text="@string/update" />
 
         <Button
             style="@style/WidthHeight"
             android:id="@+id/buttonDelete"
-            android:text="DELETE" />
+            android:text="@string/delete" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
