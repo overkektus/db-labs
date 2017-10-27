@@ -1,5 +1,6 @@
 package ped.bstu.by.sqlite1;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor cursor;
 
+    String t;
+    Long id;
+    Float f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Insert(View v) {
+    private void getValues() {
+        id = Long.parseLong(editId.getText().toString());
+        f = Float.parseFloat(editF.getText().toString());
+        t = editT.getText().toString();
+    }
 
+    public void Insert(View v) {
+        getValues();
+
+        ContentValues cv = new ContentValues();
+        cv.put(sqlHelper.COLUMN_ID, id);
+        cv.put(sqlHelper.COLUMN_F, f);
+        cv.put(sqlHelper.COLUMN_T, t);
+
+        db.insert(sqlHelper.TABLE, null, cv);
     }
 
     public void Select(View v) {
