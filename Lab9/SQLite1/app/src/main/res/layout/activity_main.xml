@@ -51,31 +51,26 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:onClick="Insert"
             style="@style/WidthHeight"
             android:id="@+id/buttonInsert"
             android:text="@string/insert" />
 
         <Button
-            android:onClick="Select"
             style="@style/WidthHeight"
             android:id="@+id/buttonSelect"
             android:text="@string/select" />
 
         <Button
-            android:onClick="SelectRaw"
             style="@style/WidthHeight"
             android:id="@+id/buttonSelectRaw"
             android:text="@string/select_raw" />
 
         <Button
-            android:onClick="Update"
             style="@style/WidthHeight"
             android:id="@+id/buttonUpdate"
             android:text="@string/update" />
 
         <Button
-            android:onClick="Delete"
             style="@style/WidthHeight"
             android:id="@+id/buttonDelete"
             android:text="@string/delete" />

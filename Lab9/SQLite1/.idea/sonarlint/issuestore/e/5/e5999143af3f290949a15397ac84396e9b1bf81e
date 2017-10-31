@@ -1,0 +1,28 @@
+
+lsquid:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(•å—×
+7squid:S1659"#Declare "editT" on a separate line.(™Ç€P
+7squid:S1659"#Declare "editF" on a separate line.(™Ç€P
+5squid:S1659" Declare "id" on a separate line.(‰ˆø
+4squid:S1659"Declare "f" on a separate line.(‰ˆø
+[squid:HiddenFieldCheck"6Rename "id" which hides the field declared at line 29.(˜İÄÅûÿÿÿÿ
+Zsquid:HiddenFieldCheck"5Rename "f" which hides the field declared at line 29.(…¬íøÿÿÿÿ
+Usquid:HiddenFieldCheck"5Rename "t" which hides the field declared at line 29.(ë’š
+Isquid:S2209"5Change this instance-reference to a static reference.(Ãî¢t
+Jsquid:S2209"5Change this instance-reference to a static reference.(¤ Å¾
+Jsquid:S2209"5Change this instance-reference to a static reference.(ÕçØÄ
+Osquid:S2209"5Change this instance-reference to a static reference.(æù÷³úÿÿÿÿ
+Osquid:S2209"5Change this instance-reference to a static reference.(±˜Ç§øÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉíùÌøÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ã¥‡ÿÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÙ³áşÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°üê‰ûÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ÂÁÃıÿÿÿÿ
+Bsquid:S1172"(Remove this unused method parameter "v".(ÉíùÌøÿÿÿÿ
+Bsquid:S1172"(Remove this unused method parameter "v".(œÙ³áşÿÿÿÿ
+Bsquid:S1172"(Remove this unused method parameter "v".(¡ÂÁÃıÿÿÿÿ
+asquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(·¤†’øÿÿÿÿ
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¥ã¥‡ÿÿÿÿÿ
+›squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(°üê‰ûÿÿÿÿ
+Ysquid:UselessImportCheck"2Remove this unused import 'android.widget.Button'.(²òıÿÿÿÿ
+Tsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
+dsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(²Ú±
