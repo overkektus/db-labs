@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
+
 import java.io.IOException;
 
 import es.dmoral.toasty.Toasty;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initialStetho();
 
         editId = (EditText)findViewById(R.id.editTextId);
         editF = (EditText)findViewById(R.id.editTextF);
@@ -91,8 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonSelect:
                 Long selId = Long.parseLong(editId.getText().toString());
-                int selResult = select(database);
-                if(selResult < 0) {
+                if(!select(database)) {
                     Toasty.warning(this, "Не удалось найти запись с ID = " + selId, 1000).show();
                 }
                 break;
@@ -129,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             t = editT.getText().toString();
     }
 
-    private int select(SQLiteDatabase database) {
+    private boolean select(SQLiteDatabase database) {
+        boolean result = false;
         String selection = "_id = ?";
         String[] selectionArgs = new String[]{id.toString()};
         Cursor c = database.query(dbHelper.TABLE_SIMPLETABLE, null, selection, selectionArgs, null, null ,null);
@@ -139,8 +142,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editF.setText(String.valueOf(c.getFloat(1)));
                 editT.setText(c.getString(2));
             }
-            return 1;
-        } else return -1;
+            result = true;
+        }
+        return result;
     }
 
     private int selectRaw(SQLiteDatabase database) {
@@ -182,5 +186,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             delCount = database.delete(DbHelper.TABLE_SIMPLETABLE, DbHelper.KEY_ID + "= " + id, null);
         }
         return delCount;
+    }
+
+    private void initialStetho() {
+        // Create an InitializerBuilder
+        Stetho.InitializerBuilder initializerBuilder =
+                Stetho.newInitializerBuilder(this);
+
+        // Enable Chrome DevTools
+        initializerBuilder.enableWebKitInspector(
+                Stetho.defaultInspectorModulesProvider(this)
+        );
+
+        // Enable command line interface
+        initializerBuilder.enableDumpapp(
+                Stetho.defaultDumperPluginsProvider(this)
+        );
+
+        // Use the InitializerBuilder to generate an Initializer
+        Stetho.Initializer initializer = initializerBuilder.build();
+
+        // Initialize Stetho with the Initializer
+        Stetho.initialize(initializer);
     }
 }
