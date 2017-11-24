@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ped.bstu.by.sqlite3.Activities.MainActivity">
+
+    <ScrollView
+        style="@style/MatchParent">
+
+        <LinearLayout
+            style="@style/MatchParent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                style="@style/tvStyle"
+                android:text="@string/tvActionTitle" />
+
+            <Spinner
+                android:id="@+id/spinnerAction"
+                android:entries="@array/actionsList"
+                style="@style/spinner" />
+
+            <Spinner
+                android:id="@+id/spinnerPeriod"
+                android:entries="@array/periodList"
+                style="@style/spinner" />
+
+            <Button
+                android:id="@+id/btnShowListGroup"
+                android:text="@string/btnShow"
+                style="@style/btnStyle" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                style="@style/tvStyle"
+                android:text="@string/tvBestGroupTitle" />
+
+            <Spinner
+                android:id="@+id/spinnerFaculties1"
+                style="@style/spinner" />
+
+            <Button
+                android:id="@+id/btnShowBestGroup"
+                android:text="@string/btnShow"
+                style="@style/btnStyle" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                style="@style/tvStyle"
+                android:text="@string/tvBadStudentTitle" />
+
+            <Button
+                android:id="@+id/btnShowBadStudent"
+                android:text="@string/btnShow"
+                style="@style/btnStyle" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

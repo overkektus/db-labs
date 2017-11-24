@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SQLite3</string>
+    <string name="tvActionTitle">Список группы со средней оценкой для:</string>
+    <string name="tvBestGroupTitle">Список наилучших студентов для всех групп факультета:</string>
+    <string name="tvBadStudentTitle">Список студентов, получивших оценки ниже 4, для всех групп факультета</string>
+    <string name="btnShow">Показать</string>
+    <string-array name="actionsList">
+        <item>каждого студента по предмету</item>
+        <item>студента в целом</item>
+        <item>группы в целом</item>
+    </string-array>
+    <string-array name="periodList">
+        <item>за предыдущую неделю</item>
+        <item>за предыдущую месяц</item>
+        <item>за предыдущую квартал</item>
+        <item>за предыдущую год</item>
+    </string-array>
+    <string name="title_activity_show_list_groups">ShowListGroups</string>
+</resources>
