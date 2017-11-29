@@ -9,31 +9,87 @@
     <ScrollView
         style="@style/MatchParent">
 
-        <LinearLayout
+        <GridLayout
             style="@style/MatchParent"
-            android:orientation="vertical">
+            android:rowCount="9"
+            android:columnCount="2">
 
             <TextView
-                android:layout_gravity="center_horizontal"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:textAlignment="center"
                 style="@style/tvStyle"
                 android:text="@string/tvActionTitle" />
 
-            <Spinner
-                android:id="@+id/spinnerAction"
-                android:entries="@array/actionsList"
-                style="@style/spinner" />
+            <LinearLayout
+                android:layout_row="1"
+                android:layout_column="0"
+                style="@style/MatchParent"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinnerPeriod"
-                android:entries="@array/periodList"
-                style="@style/spinner" />
+                <Spinner
+                    android:id="@+id/spinnerAction"
+                    android:entries="@array/actionsList"
+                    style="@style/spinner" />
+
+                <Spinner
+                    android:id="@+id/spinnerPeriod"
+                    android:entries="@array/periodList"
+                    style="@style/spinner" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_row="2"
+                android:layout_column="0"
+                style="@style/WrapContent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/MatchParent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/WrapContent"
+                        android:text="@string/periodFrom"/>
+
+                    <EditText
+                        android:hint="@string/dateHint"
+                        android:id="@+id/etPeriodShowListGroupFrom"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/WrapContent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/WrapContent"
+                        android:text="@string/periodTo"/>
+
+                    <EditText
+                        android:hint="@string/dateHint"
+                        android:id="@+id/etPeriodShowListGroupTo"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <Button
+                android:layout_row="3"
+                android:layout_column="0"
                 android:id="@+id/btnShowListGroup"
                 android:text="@string/btnShow"
                 style="@style/btnStyle" />
 
             <TextView
+                android:layout_row="4"
+                android:layout_column="0"
                 android:layout_gravity="center_horizontal"
                 style="@style/tvStyle"
                 android:text="@string/tvBestGroupTitle" />
@@ -57,7 +113,7 @@
                 android:text="@string/btnShow"
                 style="@style/btnStyle" />
 
-        </LinearLayout>
+        </GridLayout>
 
     </ScrollView>
 

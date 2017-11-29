@@ -3,6 +3,7 @@ package ped.bstu.by.sqlite3;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -42,13 +43,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onOpen(SQLiteDatabase db) {
-        String query = String.format("PRAGMA foreign_key = %s", "ON");
-        db.execSQL(query);
-    }
-
-    @Override
     public void onCreate(SQLiteDatabase db) {
+        db.setForeignKeyConstraintsEnabled(true);
         ArrayList<String> tables = getSQLTables();
         for (String table: tables){
             db.execSQL(table);
@@ -72,7 +68,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         try {
             String[] listFiles = assetManager.list(dir);
-            for (String file: listFiles){
+            for (String file : listFiles) {
                 files.add(file);
             }
 
@@ -82,11 +78,11 @@ public class DbHelper extends SQLiteOpenHelper {
             String query;
             String line;
 
-            for (String file: files){
+            for (String file : files) {
                 Log.d(TAG, "file db is " + file);
                 bufferedReader = new BufferedReader(new InputStreamReader(assetManager.open(dir + "/" + file)));
                 query = "";
-                while ((line = bufferedReader.readLine()) != null){
+                while ((line = bufferedReader.readLine()) != null) {
                     query = query + line;
                 }
                 bufferedReader.close();
@@ -182,8 +178,23 @@ public class DbHelper extends SQLiteOpenHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return data;
+    }
+
+    public static void logCursor(Cursor c) {
+        if (c != null) {
+            if (c.moveToFirst()) {
+                String str;
+                do {
+                    str = "";
+                    for (String cn : c.getColumnNames()) {
+                        str = str.concat(cn + " = " + c.getString(c.getColumnIndex(cn)) + "; ");
+                    }
+                    Log.d(TAG, str);
+                } while (c.moveToNext());
+            }
+        } else
+            Log.d(TAG, "Cursor is null");
     }
 
     @Override

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ped.bstu.by.calendartasks.ActivityCategory.activity_removeCategory">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/title"
+            android:layout_marginBottom="10dp"
+            android:text="@string/titleRemoveCategory"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerRemoveCategory"
+            android:layout_marginBottom="10dp"></Spinner>
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRemoveCategoryRemove"
+            android:onClick="onClick"
+            android:text="@string/remove"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

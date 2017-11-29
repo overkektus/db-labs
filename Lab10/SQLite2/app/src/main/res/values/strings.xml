@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">SQLite2</string>
+    <string name="titleGroup">Факультет / Курс / Группа / Староста</string>
+    <string name="removeGroup">Удалить</string>
+    <string name="addGroup">Добавить</string>
+    <string name="setHeadGroup">Назначить старосту</string>
+    <string name="faculty">Факультет:</string>
+    <string name="course">Курс:</string>
+    <string name="nameGroup">Наименование гр.:</string>
+    <string name="textViewStudent">Студент: </string>
+    <string name="hintNameGroup">Введите наименование</string>
+    <string-array name="faculties">
+        <item>ИТ</item>
+        <item>ПиМ</item>
+        <item>ЛХФ</item>
+        <item>ТТЛП</item>
+        <item>ИЭФ</item>
+        <item>ТОВ</item>
+        <item>ХТиТ</item>
+    </string-array>
+    <string-array name="courses">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CalendarTasks</string>
+    <string name="add">Добавить</string>
+    <string name="change">Изменить</string>
+    <string name="remove">Удалить</string>
+    <string name="titleTask">Задачи</string>
+    <string name="titleCategory">Категории</string>
+    <string name="title_activity_add_category">addCategory</string>
+    <string name="hintAddCategory">Введите название категории</string>
+    <string name="titleAddCategory">Добавление новой категоии</string>
+    <string name="titleChangeCategory">Изменить категорию</string>
+    <string name="titleRemoveCategory">Удалить категорию</string>
 </resources>

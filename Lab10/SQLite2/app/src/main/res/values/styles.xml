@@ -8,4 +8,52 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewItem" parent="WrapContent">
+        <item name="android:text"></item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="WidthHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewAddGroup" parent="WrapContent">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="buttonCentral">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewTitle">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="Spinner">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
 </resources>

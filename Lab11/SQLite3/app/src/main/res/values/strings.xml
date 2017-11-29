@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">SQLite3</string>
+    <string name="faculty">Факультет:</string>
+    <string name="group">Группа:</string>
+    <string name="subject">Предмет:</string>
     <string name="tvActionTitle">Список группы со средней оценкой для:</string>
     <string name="tvBestGroupTitle">Список наилучших студентов для всех групп факультета:</string>
     <string name="tvBadStudentTitle">Список студентов, получивших оценки ниже 4, для всех групп факультета</string>
     <string name="btnShow">Показать</string>
+    <string name="periodFrom">С:</string>
+    <string name="periodTo">По:</string>
+    <string name="dateHint">dd.mm.yyyy</string>
     <string-array name="actionsList">
         <item>каждого студента по предмету</item>
         <item>студента в целом</item>
@@ -16,4 +22,7 @@
         <item>за предыдущую год</item>
     </string-array>
     <string name="title_activity_show_list_groups">ShowListGroups</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

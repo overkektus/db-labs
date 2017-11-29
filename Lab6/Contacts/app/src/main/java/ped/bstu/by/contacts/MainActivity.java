@@ -97,12 +97,6 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void saveFile(View v){
-        /*
-        if(!FileHelper.isPermissionGranted()){
-            FileHelper.checkPermissions(this, this);
-            return;
-        }
-        */
         FileOutputStream fosA = null, fosN = null;
         try {
             fosA = new FileOutputStream(ACC_FILE);

@@ -1,0 +1,33 @@
+
+isquid:S00116"SRename this field "FILENAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶’ýÖ
+=squid:S1172"(Remove this unused method parameter "v".(ã¼ò¼
+‚"squid:ClassVariableVisibilityCheck"WMake NO_ACC_FILE a static final constant or non-public and provide accessors if needed.(¼Å±3
+isquid:S00116"SRename this field "ACC_FILE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ‹•Ó
+Dsquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+€"squid:ClassVariableVisibilityCheck"TMake ACC_FILE a static final constant or non-public and provide accessors if needed.(ñ‹•Ó
+dsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(²Ú±Ž
+=squid:S1172"(Remove this unused method parameter "v".(¸¯´ð
+„"squid:ClassVariableVisibilityCheck"XMake selectedYear a static final constant or non-public and provide accessors if needed.(ùÖÅÁ
+…"squid:ClassVariableVisibilityCheck"TMake curMonth a static final constant or non-public and provide accessors if needed.(¼­Ìÿþÿÿÿÿ
+@squid:S1659"&Declare "curMonth" on a separate line.(¼­Ìÿþÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›ð£ûÿÿÿÿ
+Dsquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+…"squid:ClassVariableVisibilityCheck"YMake selectedMonth a static final constant or non-public and provide accessors if needed.(ùÖÅÁ
+@squid:S1659"+Declare "selectedMonth" on a separate line.(ùÖÅÁ
+7squid:S1659""Declare "fosN" on a separate line.(Ôü¦
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(×ö³–úÿÿÿÿ
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ
+xsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "person".(Ž½ýÌýÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ªþ¯Á
+„"squid:ClassVariableVisibilityCheck"SMake curYear a static final constant or non-public and provide accessors if needed.(¼­Ìÿþÿÿÿÿ
+ƒ"squid:ClassVariableVisibilityCheck"RMake curDay a static final constant or non-public and provide accessors if needed.(¼­Ìÿþÿÿÿÿ
+ƒ"squid:ClassVariableVisibilityCheck"WMake selectedDay a static final constant or non-public and provide accessors if needed.(ùÖÅÁ
+=squid:S1172"(Remove this unused method parameter "v".(ÉÎÌî
+6squid:S1170"!Make this final field static too.(¶’ýÖ
+Tsquid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ
+ksquid:S00116"VRename this field "NO_ACC_FILE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Å±3
+dsquid:S2674"JCheck the return value of the "read" call to see how many bytes were read.(„áå¦ýÿÿÿÿ
+Bsquid:S1172"(Remove this unused method parameter "v".(‘Õðäúÿÿÿÿ
+>squid:S1659"$Declare "curDay" on a separate line.(¼­Ìÿþÿÿÿÿ
+>squid:S1659")Declare "selectedDay" on a separate line.(ùÖÅÁ
+Psquid:S2095"4Close this "FileOutputStream" in a "finally" clause.(¦Éº‹8¸§Úóö+

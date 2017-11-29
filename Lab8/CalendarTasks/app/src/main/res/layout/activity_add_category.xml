@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ped.bstu.by.calendartasks.ActivityCategory.activity_addCategory">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/title"
+            android:layout_marginBottom="10dp"
+            android:text="@string/titleAddCategory"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextAddCategory"
+            android:hint="@string/hintAddCategory"
+            android:textAlignment="center"/>
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddCategoryAdd"
+            android:onClick="onClick"
+            android:text="@string/add"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
