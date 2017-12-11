@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ped.bstu.by.sqlite3.Activities.ActivityShowStudents">
+    tools:context="ped.bstu.by.sqlite3.Activities.ActivityAnalysis">
 
     <LinearLayout
         android:orientation="vertical"
@@ -13,18 +13,26 @@
 
         <TextView
             style="@style/tvStyle"
-            android:id="@+id/tvTitleShowStudents"
+            android:id="@+id/tvTitleAnalysis"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <Spinner
+            android:id="@+id/AnalysisActSpinnerSubject"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            style="@style/spinner"
+            android:layout_width="250dp" />
 
         <GridView
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:id="@+id/gvStudents"
+            android:id="@+id/gvAnalysis"
             android:numColumns="2"
-            android:columnWidth="100dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

@@ -6,6 +6,8 @@
     <string name="tvActionTitle">Список группы со средней оценкой для:</string>
     <string name="tvBestGroupTitle">Список наилучших студентов для всех групп факультета:</string>
     <string name="tvBadStudentTitle">Список студентов, получивших оценки ниже 4, для всех групп факультета</string>
+    <string name="tvAnalysisTitle">Сравнительный анализ по группам</string>
+    <string name="tvCompareFacultyTitle">Сравнение по факультетам</string>
     <string name="btnShow">Показать</string>
     <string name="periodFrom">С:</string>
     <string name="periodTo">По:</string>
@@ -15,6 +17,10 @@
         <item>студента в целом</item>
         <item>группы в целом</item>
     </string-array>
+    <string-array name="actionsListAnalysis">
+        <item>в целом</item>
+        <item>по предмету</item>
+    </string-array>
     <string-array name="periodList">
         <item>за предыдущую неделю</item>
         <item>за предыдущую месяц</item>
@@ -23,6 +29,4 @@
     </string-array>
     <string name="title_activity_show_list_groups">ShowListGroups</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

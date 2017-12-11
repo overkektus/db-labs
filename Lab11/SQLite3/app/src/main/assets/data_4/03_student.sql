@@ -1,5 +1,5 @@
 student
-idgroup:int:29
+idgroup:int:1
 name:text:Голубева В.Б.
 birthdate:int:807146195
 address:text:359022, г.Заинск ул.Вагжанова 2 кв. 286

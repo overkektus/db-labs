@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.ActivityShowListGroup" />
-        <activity android:name=".Activities.ActivityShowStudents"></activity>
+        <activity android:name=".Activities.ActivityShowStudents" />
+        <activity android:name=".Activities.CompareFacultyActivity" />
+        <activity android:name=".Activities.ActivityAnalysis"></activity>
     </application>
 
 </manifest>
