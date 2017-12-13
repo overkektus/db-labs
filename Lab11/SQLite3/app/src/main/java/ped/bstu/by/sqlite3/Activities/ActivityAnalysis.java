@@ -107,21 +107,39 @@ public class ActivityAnalysis extends AppCompatActivity {
         return subjects;
     }
 
+    private void createView() {
+        database.execSQL(
+                "CREATE VIEW IF NOT EXISTS viewAnalysis AS " +
+                        "SELECT g.groupname, p.mark, sb.subject, p.datemark, g.faculty, g.idgroup FROM groups g " +
+                        "INNER JOIN student s ON g.idgroup = s.idgroup " +
+                        "INNER JOIN progress p ON s.idstudent = p.idstudent " +
+                        "INNER JOIN subject sb ON p.idsubject = sb.idsubject "
+        );
+    }
+
     public void showCompareFaculty(String selectedFaculty, String selectedSubject) {
+        createView();
         Cursor c = null;
         String sqlQuery;
         switch (action) {
             case ACTION_01:
+                /*
                 sqlQuery = "SELECT g.groupname, ROUND(AVG(p.mark), 2) FROM groups g " +
                         "INNER JOIN student s ON g.idgroup = s.idgroup " +
                         "INNER JOIN progress p ON s.idstudent = p.idstudent " +
                         "WHERE p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) + " " +
                         "and g.faculty like '" + selectedFaculty + "' " +
                         "GROUP BY s.idgroup";
+                */
+                sqlQuery = "SELECT groupname, ROUND(AVG(mark), 2) FROM viewAnalysis " +
+                        "WHERE datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) + " " +
+                        "and faculty like '" + selectedFaculty + "' " +
+                        "GROUP BY idgroup";
                 c = database.rawQuery(sqlQuery, null);
                 setAdapterGridView(c);
                 break;
             case ACTION_02:
+                /*
                 sqlQuery = "SELECT g.groupname, ROUND(AVG(p.mark), 2) FROM groups g " +
                         "INNER JOIN student s ON g.idgroup = s.idgroup " +
                         "INNER JOIN progress p ON s.idstudent = p.idstudent " +
@@ -130,6 +148,13 @@ public class ActivityAnalysis extends AppCompatActivity {
                         "and g.faculty like '" + selectedFaculty + "' " +
                         "and sb.subject like '" + selectedSubject + "' " +
                         "GROUP BY s.idgroup";
+                */
+
+                sqlQuery = "SELECT groupname, ROUND(AVG(mark), 2) FROM viewAnalysis " +
+                        "WHERE datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) + " " +
+                        "and faculty like '" + selectedFaculty + "' " +
+                        "and subject like '" + selectedSubject + "' " +
+                        "GROUP BY idgroup";
                 c = database.rawQuery(sqlQuery, null);
                 setAdapterGridView(c);
                 break;

@@ -203,46 +203,58 @@ public class ActivityShowListGroup extends AppCompatActivity {
         return subjects;
     }
 
+    private void createView() {
+        database.execSQL(
+                "CREATE VIEW IF NOT EXISTS viewGroups AS " +
+                        "SELECT g.faculty, g.course, g.groupname, s.name, p.mark, sb.subject, p.datemark, sb.subject FROM progress p " +
+                        "INNER JOIN student s ON p.idstudent = s.idstudent " +
+                        "INNER JOIN groups g ON g.idgroup = s.idgroup " +
+                        "INNER JOIN subject sb ON p.idsubject = sb.idsubject "
+        );
+    }
+
     private void showListGroup(String selectedFaculty, String selectedGroup, String selectedSubject) {
         Cursor c = null;
         String sqlQuery;
+        createView();
         switch (action) {
             case ACTION_01:
-                sqlQuery = "SELECT g.faculty, g.course, g.groupname, s.name, ROUND(AVG(p.mark), 2), sb.subject FROM progress p "
-                        + "INNER JOIN student s ON p.idstudent = s.idstudent "
-                        + "INNER JOIN groups g ON g.idgroup = s.idgroup "
-                        + "INNER JOIN subject sb ON p.idsubject = sb.idsubject "
-                        + "WHERE g.faculty like \"" + selectedFaculty + "\" and g.groupname like \"" + selectedGroup
-                        + "\" and sb.subject like \"" + selectedSubject + "\" "
-                        + "and p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) +
-                        " GROUP BY s.name";
+                /*
+                sqlQuery = "SELECT g.faculty, g.course, g.groupname, s.name, ROUND(AVG(p.mark), 2), sb.subject, p.datemark FROM progress p " +
+                        "INNER JOIN student s ON p.idstudent = s.idstudent " +
+                        "INNER JOIN groups g ON g.idgroup = s.idgroup " +
+                        "INNER JOIN subject sb ON p.idsubject = sb.idsubject "
+                        + "WHERE faculty like \"" + selectedFaculty + "\" and groupname like \"" + selectedGroup
+                        + "\" and subject like \"" + selectedSubject + "\" "
+                        + "and p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo)
+                        + " GROUP BY s.name";
+                */
+                sqlQuery = "SELECT faculty, course, groupname, name, ROUND(AVG(mark), 2), subject, datemark FROM viewGroups " +
+                        "WHERE faculty like \"" + selectedFaculty + "\" and groupname like \"" + selectedGroup
+                        + "\" and subject like \"" + selectedSubject + "\" "
+                        + "and datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo)
+                        + " GROUP BY name";
                 c = database.rawQuery(sqlQuery, new String[]{});
                 c.moveToNext();
                 Log.d(TAG, String.valueOf(c.getInt(4)));
                 setAdapterGridViewACTION01and02(c);
                 break;
             case ACTION_02:
-                sqlQuery = "SELECT g.faculty, g.course, g.groupname, s.name, ROUND(AVG(p.mark), 2) FROM progress p "
-                        + "INNER JOIN student s ON p.idstudent = s.idstudent "
-                        + "INNER JOIN groups g ON g.idgroup = s.idgroup "
-                        + "WHERE g.faculty like \"" + selectedFaculty + "\" "
-                        + "and g.groupname like \"" + selectedGroup + "\" "
-                        + "and p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo)
-                        + " GROUP BY s.name";
+                sqlQuery = "SELECT faculty, course, groupname, name, ROUND(AVG(mark), 2) FROM viewGroups "
+                        + "WHERE faculty like \"" + selectedFaculty + "\" "
+                        + "and groupname like \"" + selectedGroup + "\" "
+                        + "and datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo)
+                        + " GROUP BY name";
                 c = database.rawQuery(sqlQuery, new String[]{});
                 setAdapterGridViewACTION01and02(c);
                 break;
             case ACTION_03:
-                sqlQuery = "SELECT g.faculty, g.course, g.groupname, ROUND(AVG(p.mark), 2) FROM progress p "
-                        + "INNER JOIN student s ON p.idstudent = s.idstudent "
-                        + "INNER JOIN groups g ON g.idgroup = s.idgroup "
-                        + "INNER JOIN subject sb ON p.idsubject = sb.idsubject "
-                        + "WHERE g.faculty like \"" + selectedFaculty + "\" "
-                        + "and g.groupname like \"" + selectedGroup + "\" "
-                        + "and p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) +
-                        " GROUP BY g.groupname";
+                sqlQuery = "SELECT faculty, course, groupname, ROUND(AVG(mark), 2) FROM viewGroups "
+                        + "WHERE faculty like \"" + selectedFaculty + "\" "
+                        + "and groupname like \"" + selectedGroup + "\" "
+                        + "and datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) +
+                        " GROUP BY groupname";
                 c = database.rawQuery(sqlQuery, new String[]{});
-                //      DbHelper.logCursor(c);
                 setAdapterGridViewACTION03(c);
                 break;
         }

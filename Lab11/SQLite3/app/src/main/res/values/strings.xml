@@ -18,8 +18,8 @@
         <item>группы в целом</item>
     </string-array>
     <string-array name="actionsListAnalysis">
-        <item>в целом</item>
         <item>по предмету</item>
+        <item>в целом</item>
     </string-array>
     <string-array name="periodList">
         <item>за предыдущую неделю</item>

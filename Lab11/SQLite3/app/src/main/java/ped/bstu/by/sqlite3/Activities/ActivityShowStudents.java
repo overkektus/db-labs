@@ -71,12 +71,23 @@ public class ActivityShowStudents extends AppCompatActivity {
         gvStudents = findViewById(R.id.gvStudents);
     }
 
+    private void createView() {
+        database.execSQL(
+                "CREATE VIEW IF NOT EXISTS viewStudents AS " +
+                        "SELECT g.groupname, s.name, f.faculty, p.datemark, p.mark FROM student s " +
+                        "INNER JOIN progress p ON p.idstudent = s.idstudent " +
+                        "INNER JOIN groups g ON g.idgroup = s.idgroup " +
+                        "INNER JOIN faculty f ON f.faculty = g.faculty "
+        );
+    }
 
     public void showStudents(String selectedFaculty) {
+        createView();
         Cursor c = null;
         String sqlQuery;
         switch (action) {
             case ACTION_01:
+                /*
                 sqlQuery = "SELECT g.groupname, s.name FROM student s "
                         + "INNER JOIN progress p ON p.idstudent = s.idstudent "
                         + "INNER JOIN groups g ON g.idgroup = s.idgroup "
@@ -85,10 +96,17 @@ public class ActivityShowStudents extends AppCompatActivity {
                         + "and p.datemark BETWEEN " + unixDateFrom + " and " + unixDateTo
                         + " GROUP BY s.name "
                         + "HAVING avg(p.mark) > 8";
+                */
+                sqlQuery = "SELECT groupname, name FROM viewStudents "
+                        + "WHERE faculty like \"" + selectedFaculty + "\" "
+                        + "and datemark BETWEEN " + unixDateFrom + " and " + unixDateTo
+                        + " GROUP BY name "
+                        + "HAVING avg(mark) > 8";
                 c = database.rawQuery(sqlQuery, null);
                 setAdapterGridView(c);
                 break;
             case ACTION_02:
+                /*
                 sqlQuery = "SELECT g.groupname, s.name FROM student s" +
                         "    INNER JOIN progress p ON p.idstudent = s.idstudent" +
                         "    INNER JOIN groups g ON g.idgroup = s.idgroup" +
@@ -97,6 +115,12 @@ public class ActivityShowStudents extends AppCompatActivity {
                         "    and p.datemark BETWEEN " + unixDateFrom + " and " + unixDateTo +
                         "    and p.mark < 4 " +
                         "   GROUP BY s.name ";
+                */
+                sqlQuery = "SELECT groupname, name FROM viewStudents" +
+                        "    WHERE faculty like \"" + selectedFaculty + "\" " +
+                        "    and datemark BETWEEN " + unixDateFrom + " and " + unixDateTo +
+                        "    and mark < 4 " +
+                        "   GROUP BY name ";
                 c = database.rawQuery(sqlQuery, null);
                 setAdapterGridView(c);
                 break;

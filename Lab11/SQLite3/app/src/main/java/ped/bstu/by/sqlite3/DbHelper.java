@@ -57,6 +57,19 @@ public class DbHelper extends SQLiteOpenHelper {
                 long rowId = db.insert(table, null, hm.get(table));
             }
         }
+
+        db.execSQL(
+                "CREATE INDEX IF NOT EXISTS indexStudentName ON student(name)"
+        );
+
+        db.execSQL(
+            "CREATE INDEX IF NOT EXISTS indexDatemark ON progress(datemark)"
+        );
+
+        db.execSQL(
+                "CREATE INDEX IF NOT EXISTS indexMark ON progress(mark)"
+        );
+
     }
 
     private ArrayList<String> getSQLTables() {

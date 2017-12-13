@@ -52,13 +52,29 @@ public class CompareFacultyActivity extends AppCompatActivity {
         gvCompareFaculty = findViewById(R.id.gvCompareFaculty);
     }
 
-    public void showCompareFaculty() {
+    private void createView() {
+        database.execSQL(
+                "CREATE VIEW IF NOT EXISTS viewCompareFaculty AS " +
+                        "SELECT g.faculty, p.mark, p.datemark FROM groups g " +
+                        "INNER JOIN student s ON g.idgroup = s.idgroup " +
+                        "INNER JOIN progress p ON s.idstudent = p.idstudent "
+        );
+    }
 
+    public void showCompareFaculty() {
+        createView();
+
+        /*
         String sqlQuery = "SELECT g.faculty, ROUND(AVG(p.mark), 2) FROM groups g " +
                 "INNER JOIN student s ON g.idgroup = s.idgroup " +
                 "INNER JOIN progress p ON s.idstudent = p.idstudent " +
                 "WHERE p.datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) + " " +
                 "GROUP BY g.faculty ORDER BY avg(p.mark) ASC";
+        */
+
+        String sqlQuery = "SELECT faculty, ROUND(AVG(mark), 2) avg_mark FROM viewCompareFaculty " +
+                "WHERE datemark BETWEEN " + String.valueOf(unixDateFrom) + " and " + String.valueOf(unixDateTo) + " " +
+                "GROUP BY faculty ORDER BY avg_mark ASC";
 
         Cursor c = database.rawQuery(sqlQuery, null);
         c.moveToFirst();
