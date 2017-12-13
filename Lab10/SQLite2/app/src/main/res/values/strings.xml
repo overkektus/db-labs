@@ -9,6 +9,8 @@
     <string name="nameGroup">Наименование гр.:</string>
     <string name="textViewStudent">Студент: </string>
     <string name="hintNameGroup">Введите наименование</string>
+    <string name="titleStudent">Студент</string>
+    <string name="tvStudentName">Добавление нового студента</string>
     <string-array name="faculties">
         <item>ИТ</item>
         <item>ПиМ</item>

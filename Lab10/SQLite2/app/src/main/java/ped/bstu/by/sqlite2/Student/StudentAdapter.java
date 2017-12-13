@@ -47,11 +47,15 @@ public class StudentAdapter extends BaseAdapter {
         // используем созданные, но не используемые view
         View view = convertView;
         if (view == null) {
-            view = lInflater.inflate(R.layout.item, parent, false);
+            view = lInflater.inflate(R.layout.item_student, parent, false);
         }
 
-        Student g = getStudent(position);
-        //((TextView) view.findViewById(R.id.faculty)).setText(g.getFaculty().toString());
+        if (objects != null) {
+            Student s = getStudent(position);
+            ((TextView) view.findViewById(R.id.studentname)).setText(s.getName());
+        } else {
+            ((TextView) view.findViewById(R.id.studentname)).setText("");
+        }
 
         return view;
     }

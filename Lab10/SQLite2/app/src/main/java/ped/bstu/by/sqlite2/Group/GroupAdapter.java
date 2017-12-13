@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 import ped.bstu.by.sqlite2.R;
 
@@ -47,15 +46,21 @@ public class GroupAdapter extends BaseAdapter {
         // используем созданные, но не используемые view
         View view = convertView;
         if (view == null) {
-            view = lInflater.inflate(R.layout.item, parent, false);
+            view = lInflater.inflate(R.layout.item_group, parent, false);
         }
-
-        Group g = getGroup(position);
-        ((TextView) view.findViewById(R.id.faculty)).setText(g.getFaculty().toString());
-        ((TextView) view.findViewById(R.id.course)).setText(String.valueOf(g.getCourse()));
-        ((TextView) view.findViewById(R.id.name)).setText(g.getName().toString());
-        if(g.getHead() != null)
-            ((TextView) view.findViewById(R.id.head)).setText(g.getHead().toString());
+        if(getCount() != 0) {
+            Group g = getGroup(position);
+            ((TextView) view.findViewById(R.id.faculty)).setText(g.getFaculty().toString());
+            ((TextView) view.findViewById(R.id.course)).setText(String.valueOf(g.getCourse()));
+            ((TextView) view.findViewById(R.id.name)).setText(g.getName().toString());
+            if(g.getHead() != null)
+                ((TextView) view.findViewById(R.id.head)).setText(g.getHead().toString());
+        } else {
+            ((TextView) view.findViewById(R.id.faculty)).setText("");
+            ((TextView) view.findViewById(R.id.course)).setText("");
+            ((TextView) view.findViewById(R.id.name)).setText("");
+            ((TextView) view.findViewById(R.id.head)).setText("");
+        }
 
         return view;
     }

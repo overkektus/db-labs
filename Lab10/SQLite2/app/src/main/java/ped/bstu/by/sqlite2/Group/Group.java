@@ -6,16 +6,26 @@ package ped.bstu.by.sqlite2.Group;
 
 public class Group {
 
+    private Long id;
     private String Faculty;
     private int Course;
     private String Name;
     private String Head;
 
-    public Group(String faculty, int course, String name, String head) {
+    public Group(Long id, String faculty, int course, String name, String head) {
+        this.id = id;
         this.Faculty = faculty;
         this.Course = course;
         this.Name = name;
-        this.Head = head;
+        setHead(head);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFaculty() {
@@ -48,5 +58,16 @@ public class Group {
 
     public void setHead(String head) {
         Head = head;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", Faculty='" + Faculty + '\'' +
+                ", Course=" + Course +
+                ", Name='" + Name + '\'' +
+                ", Head='" + Head + '\'' +
+                '}';
     }
 }

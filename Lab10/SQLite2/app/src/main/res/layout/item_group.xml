@@ -8,21 +8,21 @@
     <TextView
         android:id="@+id/faculty"
         style="@style/TextViewItem"
-        android:text=""
-    />
+        android:text="" />
+
     <TextView
         android:id="@+id/course"
         style="@style/TextViewItem"
-        android:text=""
-    />
+        android:text="" />
+
     <TextView
         android:id="@+id/name"
         style="@style/TextViewItem"
-        android:text=""
-    />
+        android:text="" />
+
     <TextView
         android:id="@+id/head"
         style="@style/TextViewItem"
-        android:text=""
-    />
+        android:text="" />
+
 </LinearLayout>

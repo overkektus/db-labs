@@ -6,22 +6,12 @@ package ped.bstu.by.sqlite2.Student;
 
 public class Student {
 
-    private Long id;
     private Long id_g;
     private String Name;
 
-    public Student(Long id, Long id_g, String name) {
-        this.id = id;
+    public Student(Long id_g, String name) {
         this.id_g = id_g;
         this.Name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getId_g() {
@@ -38,5 +28,13 @@ public class Student {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id_g=" + id_g +
+                ", Name='" + Name + '\'' +
+                '}';
     }
 }

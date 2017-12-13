@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddGroupActivity" />
-        <activity android:name=".SetHeadActivity"></activity>
+        <activity android:name=".SetHeadActivity" />
+        <activity android:name=".AddStudentActivity"></activity>
     </application>
 
 </manifest>

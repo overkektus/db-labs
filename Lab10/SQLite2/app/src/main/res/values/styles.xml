@@ -52,7 +52,7 @@
     <style name="Spinner">
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_height">30dp</item>
-        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_width">370dp</item>
         <item name="android:layout_marginBottom">15dp</item>
     </style>
 
